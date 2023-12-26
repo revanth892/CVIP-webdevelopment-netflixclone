@@ -1,0 +1,10 @@
+.banner_area{
+    color:white;
+    object-fit:contain;
+    height: 500px;
+}
+
+.banner_content{
+    margin-left: 32px;
+    padding-top:150px
+}

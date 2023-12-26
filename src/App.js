@@ -1,18 +1,26 @@
 import React from 'react'
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import SigninPage from './pages/SigninPage';
-import NetflixPage from './pages/LoginPage';
-
+import Row from './components/Row';
+import Banner from './components/Banner'
+import requests from './requests';
+import './App.css'
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/login' element={<LoginPage />}/>
-        <Route path='/signin' element={<SigninPage />}/>
-        <Route path='/' element={<NetflixPage />}/>
-      </Routes>
-    </BrowserRouter>
+    <>
+      {/* <Navbar/> */}
+      <Banner/>
+      <Row 
+        title="NETFLIX ORIGINALS" 
+        fetchUrl={requests.getNetflixOriginals}
+        isLargeRow
+      />
+      <Row title="Trending Now" fetchUrl={requests.getTrending}/>
+      {/* <Row title="Top Rated" fetchUrl={requests.getTopRated}/> */}
+      <Row title="Action Movies" fetchUrl={requests.getActionMovies}/>
+      <Row title="Comedy Movies" fetchUrl={requests.getComedyMovies}/>
+      <Row title="Horror Movies" fetchUrl={requests.getHorrorMovies}/>
+      <Row title="Romance Movies" fetchUrl={requests.getRomanceMovies}/>
+      <Row title="Documentaries" fetchUrl={requests.getDocumentaries}/>
+    </>
   );
 }
 
